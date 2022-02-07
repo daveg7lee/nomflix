@@ -15,6 +15,7 @@ const Nav = styled(motion.nav)`
   font-size: 14px;
   padding: 1.25rem 3.75rem;
   color: white;
+  z-index: 3;
 `;
 
 const Col = styled.div`
@@ -27,10 +28,6 @@ const Logo = styled(motion.svg)`
   width: 5.938rem;
   height: 25px;
   fill: ${(props) => props.theme.red};
-  path {
-    stroke-width: 6px;
-    stroke: white;
-  }
 `;
 
 const Items = styled.ul`
@@ -140,7 +137,7 @@ function Header() {
   const navigate = useNavigate();
   const { register, handleSubmit } = useForm<IForm>();
   const onValid = (data: IForm) => {
-    navigate(`/search?keyword=${data.keyword}`);
+    navigate(`/search/${data.keyword}`);
   };
 
   return (
